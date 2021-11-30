@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.print.event.PrintEvent;
+
 public class Enigma {
 	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
@@ -100,6 +102,7 @@ public class Enigma {
 					DeseaContinuar();
 					break;
 				case 11:
+					medusa(PedirTexto());
 					break;
 				case 12:
 					Adios();
@@ -117,99 +120,97 @@ public class Enigma {
 		System.out.println();
 		System.out.println();
 
-	
-        System.out.println("██████████████████████████████████████████");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░▄▀▄░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░░▄▀░░░▀▄░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░▄▀░░░░▄▀█░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░▄▀░░░░▄▀░▄▀░▄▀▄░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░▄▀░░░░▄▀░▄▀░▄▀░░░▀▄░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░█▀▄░░░░▀█░▄▀░░░░░░░▀▄░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░▄▀▄░▀▄░▀▄░░░░▀░░░░▄█▄░░░░▀▄░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░▄▀░░░▀▄░▀▄░▀▄░░░░░▄▀░█░▀▄░░░░▀▄░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░█▀▄░░░░▀▄░█▀░░░░░░░▀█░▀▄░▀▄░▄▀█░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░▀▄░▀▄░░░░▀░░░░▄█▄░░░░▀▄░▀▄░█░▄▀░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░▀▄░▀▄░░░░░▄▀░█░▀▄░░░░▀▄░▀█▀░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░▀▄░▀▄░▄▀░▄▀░█▀░░░░▄▀█░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░▀▄░█░▄▀░▄▀░░░░▄▀░▄▀░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░▀█▀░▄▀░░░░▄▀░▄▀░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░█▀▄░▄▀░▄▀░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░▀▄░█░▄▀░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░░░▀█▀░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeSlow());
-        System.out.println("█░░░░░░░░░░░░░MAQUINA ENIGMA░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░Servicio de Inteligencia del 2nd Reich░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░1. Encriptado total░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░2. Desencriptado total░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░3. Encriptar texto solo con rotor A░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░4. Desncriptar texto solo con rotor A░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░5. Encriptar texto solo con rotor B░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░6. Desncriptar texto solo con rotor B░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░7. Encriptar texto solo con rotor C░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░8. Desncriptar texto solo con rotor C░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░9. Encriptar texto solo con rotor D░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░10. Desncriptar texto solo con rotor D░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░11. Medusa░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░12. Salir del programa░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░Escoja una opción░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
-        Thread.sleep(randomTimeFast());
-        System.out.println("██████████████████████████████████████████");
-
+		System.out.println("██████████████████████████████████████████");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░▄▀▄░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░░▄▀░░░▀▄░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░▄▀░░░░▄▀█░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░▄▀░░░░▄▀░▄▀░▄▀▄░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░▄▀░░░░▄▀░▄▀░▄▀░░░▀▄░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░█▀▄░░░░▀█░▄▀░░░░░░░▀▄░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░▄▀▄░▀▄░▀▄░░░░▀░░░░▄█▄░░░░▀▄░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░▄▀░░░▀▄░▀▄░▀▄░░░░░▄▀░█░▀▄░░░░▀▄░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░█▀▄░░░░▀▄░█▀░░░░░░░▀█░▀▄░▀▄░▄▀█░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░▀▄░▀▄░░░░▀░░░░▄█▄░░░░▀▄░▀▄░█░▄▀░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░▀▄░▀▄░░░░░▄▀░█░▀▄░░░░▀▄░▀█▀░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░▀▄░▀▄░▄▀░▄▀░█▀░░░░▄▀█░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░▀▄░█░▄▀░▄▀░░░░▄▀░▄▀░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░▀█▀░▄▀░░░░▄▀░▄▀░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░█▀▄░▄▀░▄▀░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░▀▄░█░▄▀░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░░░▀█▀░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeSlow());
+		System.out.println("█░░░░░░░░░░░░░MAQUINA ENIGMA░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░Servicio de Inteligencia del 2nd Reich░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░1. Encriptado total░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░2. Desencriptado total░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░3. Encriptar texto solo con rotor A░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░4. Desncriptar texto solo con rotor A░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░5. Encriptar texto solo con rotor B░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░6. Desncriptar texto solo con rotor B░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░7. Encriptar texto solo con rotor C░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░8. Desncriptar texto solo con rotor C░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░9. Encriptar texto solo con rotor D░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░10. Desncriptar texto solo con rotor D░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░11. Medusa░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░12. Salir del programa░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░Escoja una opción░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█");
+		Thread.sleep(randomTimeFast());
+		System.out.println("██████████████████████████████████████████");
 
 		System.out.println();
 	}
@@ -481,6 +482,24 @@ public class Enigma {
 		if (numero % 2 == 0)
 			esPar = true;
 		return esPar;
+	}
+
+	public static void medusa(String textoCifrado) {
+
+		for (int a = 0; a < 100; a++) {
+            for (int b = 0; b < 100; b++) {
+                for (int c = 0; c < 100; c++) {
+                    for (int d = 0; d < 100; d++) {
+						System.out.println(d + " " + c + " " + b + " " + a);
+						textoCifrado = DesencriptadoRotorD(textoCifrado, d);
+						textoCifrado = DesencriptadoRotorC(textoCifrado, c);
+						textoCifrado = DesencriptadoRotorB(textoCifrado, b);
+						textoCifrado = DesencriptadoRotorA(textoCifrado, a);
+						System.out.println(textoCifrado);
+                    }
+                }
+            }
+        }
 	}
 
 	public static void DeseaContinuar() {
