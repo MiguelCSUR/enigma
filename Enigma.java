@@ -1,6 +1,9 @@
+import java.io.ObjectInputFilter.Status;
 import java.util.Scanner;
 
 import javax.print.event.PrintEvent;
+
+//Cada rotor que compruebe si el char es cifrable, los char cifrables son los del 32 al 126.
 
 public class Enigma {
 	public static void main(String[] args) throws InterruptedException {
@@ -8,7 +11,7 @@ public class Enigma {
 		int opcion = 1939;
 		String cadena = "";
 		int rotorA, rotorB, rotorC, rotorD;
-
+		
 		while (opcion != 12) {
 			cadena = "";
 			PintarPantalla(opcion);
@@ -271,7 +274,7 @@ public class Enigma {
 
 		for (int i = 0; i < cadena.length(); i++) {
 
-			if (cada3)
+			if (cada3 && esCifrable(cadena.charAt(i)))
 				cadenaEncriptada = cadenaEncriptada + Cifrar(cadena.charAt(i), rotor);
 			else
 				cadenaEncriptada = cadenaEncriptada + cadena.charAt(i);
@@ -291,7 +294,7 @@ public class Enigma {
 		boolean cada3 = true;
 
 		for (int i = 0; i < cadena.length(); i++) {
-			if (cada3)
+			if (cada3 && esCifrable(cadena.charAt(i)))
 				cadenaDesencriptada = cadenaDesencriptada + Descifrar(cadena.charAt(i), rotor);
 			else
 				cadenaDesencriptada = cadenaDesencriptada + cadena.charAt(i);
@@ -326,8 +329,8 @@ public class Enigma {
 
 	public static String DesencriptadoRotorB(String cadena, int rotor) {
 		String cadenaDesencriptada = "";
-		if (rotorCero(rotor))
-			return cadena;
+		
+		if (rotorCero(rotor)) return cadena;
 
 		for (int i = 0; i < cadena.length(); i++) {
 			if (esPar(i)) {
@@ -366,18 +369,22 @@ public class Enigma {
 		// Con el índice hacemos la comprobacion de si la posición original (antes del
 		// cifrado) de la letra era par o impar
 		int indice = textoCifrado.length() - 1;
-		// Si el numero total de letras en la frase es par, para adecuar la posición del
-		// cifrado ha la original hay que sumarle uno
+		
 		if (rotorCero(valor))
 			return textoCifrado;
 
+		// Si el numero total de letras en la frase es par, para adecuar la posición del
+		// cifrado ha la original hay que sumarle uno
 		if (esPar(textoCifrado.length())) {
 			indice++;
 		}
 		// Debemos saber cuantas veces se giro el rotor desde la posicion "valor" en el
 		// cifrado,
 		// para partir desde ahi, e ir girando el rotor a la inversa
-		int valorRotado = valor + (23 * (textoCifrado.length() / 2));
+		
+		// int valorRotado = valor + (23 * (textoCifrado.length() / 2));
+		int valorRotado = valor + (23 * Prueba.contadorRotacionesCifrado(textoCifrado, false));
+		
 		String textoDescifrado = "";
 		char letra;
 
@@ -411,7 +418,7 @@ public class Enigma {
 			cadenaAlReves = cadenaAlReves + cadena.charAt(i);
 
 		for (int i = 0; i < cadenaAlReves.length(); i++) {
-			if (cada5)
+			if (cada5 && esCifrable(cadena.charAt(i)))
 				cadenaEncriptada = cadenaEncriptada + Cifrar(cadenaAlReves.charAt(i), rotor);
 			else
 				cadenaEncriptada = cadenaEncriptada + cadenaAlReves.charAt(i);
@@ -434,7 +441,7 @@ public class Enigma {
 			return cadena;
 
 		for (int i = 0; i < cadena.length(); i++) {
-			if (cada5)
+			if (cada5 && esCifrable(cadena.charAt(i)))
 				cadenaAux = cadenaAux + Descifrar(cadena.charAt(i), rotor);
 			else
 				cadenaAux = cadenaAux + cadena.charAt(i);
@@ -487,19 +494,56 @@ public class Enigma {
 	public static void medusa(String textoCifrado) {
 
 		for (int a = 0; a < 100; a++) {
-            for (int b = 0; b < 100; b++) {
-                for (int c = 0; c < 100; c++) {
-                    for (int d = 0; d < 100; d++) {
-						System.out.println(d + " " + c + " " + b + " " + a);
+			for (int b = 0; b < 100; b++) {
+				for (int c = 0; c < 100; c++) {
+					for (int d = 0; d < 100; d++) {
+
+						System.out.printf("%d %d %d %d\n", d, c, b, a);
 						textoCifrado = DesencriptadoRotorD(textoCifrado, d);
 						textoCifrado = DesencriptadoRotorC(textoCifrado, c);
 						textoCifrado = DesencriptadoRotorB(textoCifrado, b);
 						textoCifrado = DesencriptadoRotorA(textoCifrado, a);
-						System.out.println(textoCifrado);
-                    }
-                }
-            }
-        }
+
+						// String[] textoSeparado = textoCifrado.split("\\s+");
+						
+						// for (String palabrasDelCifrado : textoSeparado) {
+						// 	for (String palabraDelListado : ListadoPalabras.listaPalabras()) {
+						// 		if(palabrasDelCifrado.equals(palabraDelListado)) {
+						// 			System.out.printf("rotorD: %d rotorC: %d rotorB: %d rotorA: %d", d, c, b, a);
+						// 			System.out.println(textoCifrado);
+						// 			break;
+						// 		}
+						// 	}
+						// }
+					}
+				}
+			}
+		}
+	}
+
+	public static boolean esCifrable(char letra) {
+		boolean esCifrable = false;
+		if (letra >= 32 && letra <= 126) {
+			esCifrable = true;
+		}
+		return esCifrable;
+	}
+
+	public int rotaciones(String textoCifrado, boolean esCifradoPar ) {
+		int rotaciones = 0;
+		for (int i = 0; i < textoCifrado.length(); i++) {
+			char letra = textoCifrado.charAt(i);
+			if (esCifradoPar) {
+				if (esPar(i)) {
+					if (esCifrable(letra)) rotaciones++;
+				}
+			} else {
+				if (!esPar(i)) {
+					if (esCifrable(letra)) rotaciones++;
+				}
+			}
+		}
+		return rotaciones;
 	}
 
 	public static void DeseaContinuar() {
@@ -507,6 +551,34 @@ public class Enigma {
 		System.out.println("Pulse Enter para continuar");
 		String continuar = sc.nextLine();
 	}
+
+	public static int numeroLetrasCifradas(String textoCifrado, boolean esCifradoPar) {
+        int rotaciones = 0;
+
+        boolean totalDeLetrasPar = false;
+        if (esPar(textoCifrado.length())) {
+            totalDeLetrasPar = true;
+        }
+
+        for (int i = (textoCifrado.length() - 1); i >= 0; i--) {
+            char letra = textoCifrado.charAt(i);
+            if (esCifrable(letra)) {
+                if ((!esCifradoPar && !totalDeLetrasPar) || (esCifradoPar && totalDeLetrasPar)) {
+                    //contamos las posiciones IMPARES
+                    if(!esPar(i)) {
+                        rotaciones++;
+                    }
+                } else if ((!esCifradoPar && totalDeLetrasPar) || (esCifradoPar && !totalDeLetrasPar)) {
+                    //contamos las posiciones PARES
+                    if(esPar(i)) {
+                        rotaciones++;
+                    }
+
+                }
+            }
+        }
+        return rotaciones;
+    }
 
 	public static void Adios() {
 		System.out.println("██████████████████████████████████████████");
