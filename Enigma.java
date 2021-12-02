@@ -1,6 +1,7 @@
 import java.io.ObjectInputFilter.Status;
 import java.util.Scanner;
 
+import javax.print.CancelablePrintJob;
 import javax.print.event.PrintEvent;
 
 //Cada rotor que compruebe si el char es cifrable, los char cifrables son los del 32 al 126.
@@ -316,7 +317,7 @@ public class Enigma {
 							// que salir igual, por eso el B, C y D tienen esto
 
 		for (int i = 0; i < cadena.length(); i++) {
-			if (esPar(i)) {
+			if (esPar(i) && esCifrable(cadena.charAt(i))) {
 				cadenaEncriptada = cadenaEncriptada + Cifrar(cadena.charAt(i), rotor);
 				rotor = rotor + 11;
 				if (rotor > 99)
@@ -329,11 +330,11 @@ public class Enigma {
 
 	public static String DesencriptadoRotorB(String cadena, int rotor) {
 		String cadenaDesencriptada = "";
-		
+
 		if (rotorCero(rotor)) return cadena;
 
 		for (int i = 0; i < cadena.length(); i++) {
-			if (esPar(i)) {
+			if (esPar(i) && esCifrable(cadena.charAt(i))) {
 				cadenaDesencriptada = cadenaDesencriptada + Descifrar(cadena.charAt(i), rotor);
 				rotor = rotor + 11;
 				if (rotor > 99)
@@ -354,7 +355,7 @@ public class Enigma {
 		for (int i = (texto.length() - 1); i >= 0; i--) {
 			letra = texto.charAt(i);
 			// Comprobamos que la posicion de la letra sea impar, para aplicarle el cifrado
-			if (!esPar(i)) {
+			if (!esPar(i) && esCifrable(letra)) {
 				letra = Cifrar(letra, valor);
 				valor += 23;
 			}
@@ -392,7 +393,7 @@ public class Enigma {
 			// sacamos la letra
 			letra = textoCifrado.charAt(i);
 
-			if (indice % 2 != 0) {
+			if (indice % 2 != 0 && esCifrable(letra)) {
 				// giramos el rotor a la inversa y desciframos
 				valorRotado -= 23;
 				letra = Descifrar(letra, valorRotado);
@@ -408,20 +409,19 @@ public class Enigma {
 	}
 
 	public static String EncriptadoRotorD(String cadena, int rotor) {
-		String cadenaAlReves = "";
+		String cadenaInversa = "";
 		String cadenaEncriptada = "";
 		boolean cada5 = true;
-		if (rotorCero(rotor))
-			return cadena;
+		if (rotorCero(rotor)) return cadena;
 
 		for (int i = cadena.length() - 1; i >= 0; i--)
-			cadenaAlReves = cadenaAlReves + cadena.charAt(i);
+			cadenaInversa = cadenaInversa + cadena.charAt(i);
 
-		for (int i = 0; i < cadenaAlReves.length(); i++) {
-			if (cada5 && esCifrable(cadena.charAt(i)))
-				cadenaEncriptada = cadenaEncriptada + Cifrar(cadenaAlReves.charAt(i), rotor);
+		for (int i = 0; i < cadenaInversa.length(); i++) {
+			if (cada5 && esCifrable(cadenaInversa.charAt(i)))
+				cadenaEncriptada = cadenaEncriptada + Cifrar(cadenaInversa.charAt(i), rotor);
 			else
-				cadenaEncriptada = cadenaEncriptada + cadenaAlReves.charAt(i);
+				cadenaEncriptada = cadenaEncriptada + cadenaInversa.charAt(i);
 
 			if ((i + 1) % 5 == 0) {
 				if (cada5)
@@ -437,8 +437,8 @@ public class Enigma {
 		String cadenaAux = "";
 		String cadenaDesencriptada = "";
 		boolean cada5 = true;
-		if (rotorCero(rotor))
-			return cadena;
+
+		if (rotorCero(rotor)) return cadena;
 
 		for (int i = 0; i < cadena.length(); i++) {
 			if (cada5 && esCifrable(cadena.charAt(i)))

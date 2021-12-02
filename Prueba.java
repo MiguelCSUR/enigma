@@ -32,7 +32,7 @@ public class Prueba {
         // System.out.println(numero3);
         // System.out.println(numero4);
 
-        String cifradoB = "Hola soy Pablo un maquinita total, capitan, fiero terrateniente malagueño";
+        String cifradoB = "Hola soy Pablo un maquínita total, capitán, fiero terrateniente malagueño";
         // System.out.println(
         //     Enigma.EncriptadoRotorC(cifradoB, 85)
         // );
@@ -40,6 +40,9 @@ public class Prueba {
         // String cifradaB = ">oma(s#y>P+bAo_uY caruqn|t  >oIaL,jcWpjtin? %i/rD Te]rWtfnqe\"t$ 7aAaGuPñe";
         // String cifradaC = "oçe#g&l=mre~n'iGedayr$tUo_emf;,Aa^iqa{ [lHtmt5aAiRipqsmInV glqav Woh ml3H";
 
+        System.out.println(Enigma.DesencriptadoRotorA(Enigma.EncriptadoRotorA(cifradoB, 85), 85));
+        System.out.println(Enigma.DesencriptadoRotorB(Enigma.EncriptadoRotorB(cifradoB, 85), 85));
+        System.out.println(Enigma.DesencriptadoRotorC(Enigma.EncriptadoRotorC(cifradoB, 85), 85));
         System.out.println(Enigma.DesencriptadoRotorD(Enigma.EncriptadoRotorD(cifradoB, 85), 85));
 
     }
