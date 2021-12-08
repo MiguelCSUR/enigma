@@ -102,6 +102,7 @@ public class Enigma {
 					break;
 				case 11:
 					medusa(PedirTexto());
+					DeseaContinuar();
 					break;
 				case 12:
 					Adios();
@@ -486,8 +487,8 @@ public class Enigma {
 									// analizamos que las palabras no excedan 16 de letras
 									for (int j = 0; j < listaPalabras().length; j++) {
 										if (textoSeparado[i].equals(listaPalabras()[j])) {
-											// System.out.printf("%d %d %d %d\n", d, c, b, a);
-											System.out.println("encontrado");
+											System.out.println("ENCONTRADO:");
+											System.out.printf("D: %d; C: %d; B: %d; A: %d;\n", d, c, b, a);
 											for (String string : textoSeparado) {
 												System.out.print(" " + string + " ");
 											}
@@ -500,6 +501,7 @@ public class Enigma {
 					}
 				}
 			}
+			System.out.println("Han terminado todos los rotores");
 		}
 	}
 
