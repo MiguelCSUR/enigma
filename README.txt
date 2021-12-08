@@ -1,1 +1,0 @@
-Pequeño fallo en RotorB
