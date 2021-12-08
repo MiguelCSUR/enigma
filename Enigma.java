@@ -501,8 +501,9 @@ public class Enigma {
 					}
 				}
 			}
-			System.out.println("Han terminado todos los rotores");
+			System.out.println("Rotor A: " + a);
 		}
+		System.out.println("Han terminado todos los rotores");
 	}
 
 	public static boolean esCifrable(char letra) {
