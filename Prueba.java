@@ -45,6 +45,7 @@ public class Prueba {
         System.out.println(Enigma.DesencriptadoRotorC(Enigma.EncriptadoRotorC(cifradoB, 85), 85));
         System.out.println(Enigma.DesencriptadoRotorD(Enigma.EncriptadoRotorD(cifradoB, 85), 85));
 
+
     }
 
     public static int contadorRotacionesCifrado(String textoCifrado, boolean esCifradoPar) {

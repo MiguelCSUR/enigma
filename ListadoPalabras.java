@@ -2,11 +2,11 @@
 public class ListadoPalabras {
     public static String[] listaPalabras() {
 
-        String[] palabras = { "división", "panzer", "constituida", "noviembre", "stablack", "prusia", "oriental",
+        String[] palabras = { "bando", "neutral", "enemigo", "división", "panzer", "constituida", "noviembre", "stablack", "prusia", "oriental",
                 "responder", "enormes", "demandas", "personal", "material", "ejército", "alemán", "consecuencia",
                 "operación", "barbarroja", "invasión", "núcleo", "procedía", "caballería", "trasladada", "francia",
                 "completar", "entrenamiento", "actuando", "reserva", "ejércitos", "índice", "frente", "194243",
-                "reconstrucción", "unidad", "campañas", "194345", "generales", "bibliografía", "enlaces", "externos",
+                "reconstrucción", "unidad", "campañas", "generales", "bibliografía", "enlaces", "externos",
                 "unidades", "mecanizadas", "avanzan", "durante", "llanuras", "aprecian", "varios", "modelos", "armado",
                 "rampas", "lanzacohetes", "traslada", "llegar", "realizando", "combate", "xlvxxx", "cuerpo", "batalla",
                 "voronez", "transferida", "agosto", "después", "participar", "avance", "volvió", "ataque", "contra",
@@ -15,7 +15,7 @@ public class ListadoPalabras {
                 "fusionado", "formar", "kampfgruppe", "último", "febrero", "supervivientes", "rindieron",
                 "reconstruida", "destrucción", "partir", "regimiento", "panzergrenadier", "concentrada", "batallones",
                 "fueron", "equipados", "respectivamente", "tanques", "panther", "cañones", "asalto", "sturmgeschütz",
-                "recibió", "unirse", "fuerzas", "alemanas", "ocupación", "antiguo", "aliado", "italia", "mussolini",
+                "recibió", "unirse", "fuerzas", "alemanas", "ocupación", "ocupar", "ocupa", "antiguo", "aliado", "italia", "mussolini",
                 "pasado", "aliados", "primera", "desarmar", "italiano", "acantonada", "luchando", "partisanos",
                 "aunque", "operaciones", "desembarco", "salerno", "órdenes", "regresar", "permaneció", "combatiendo",
                 "guerra", "agregada", "encuadrado", "dentro", "nikopol", "diciembre", "krivoi", "atacada", "soviético",
