@@ -466,7 +466,7 @@ public class Enigma {
 
 		System.out.println("Iniciando Desencriptado...");
 
-		for (int a = 0; a < 100; a++) {
+		for (int a = 58; a < 100; a++) {
 			for (int b = 0; b < 100; b++) {
 				for (int c = 0; c < 100; c++) {
 					for (int d = 0; d < 100; d++) {
